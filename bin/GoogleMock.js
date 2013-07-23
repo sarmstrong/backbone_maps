@@ -1,0 +1,41 @@
+var google = {};
+
+google.maps = {
+
+
+}; 
+
+google.maps.event = {
+
+  addListener : function(map , event , cb ) {
+
+    map.listeners[event] = {callBack: cb}; 
+
+  } , 
+
+  trigger : function(obj , event) {
+
+    obj.callListener(event);
+
+  }
+
+};
+
+google.maps.Map = function() { 
+
+  this.listeners =  {}; 
+
+  this.callListener = function(event) {
+
+    this.listeners[event].callBack();
+
+  };
+
+};
+
+google.maps.Marker = function() {
+
+  google.maps.Map.call(this);
+
+};
+
