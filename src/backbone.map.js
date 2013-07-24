@@ -12,19 +12,7 @@
 
     }
 
-    if (options.library === undefined) {
-
-      throw "Must define a library";
-
-    }
-
-    var library; 
-
-    if (options.library === 'google') {
-
-      library = google; 
-
-    } 
+    var library = google;  
 
     this.getMap = function() {
 
@@ -129,7 +117,7 @@
 
     addMarker : function(marker , model) {
 
-      var marker_obj = new Backbone.MapMarker({marker: marker , model : model , library : this.getLibraryName() }); 
+      var marker_obj = new Backbone.MapMarker({marker: marker , model : model }); 
 
       this.trigger("map:marker_add" , marker_obj , model);
 

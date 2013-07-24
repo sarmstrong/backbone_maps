@@ -18,19 +18,7 @@
 
     }
 
-    if (options.library === undefined) {
-
-      throw "Must define a library";
-
-    }
-
-    var library; 
-
-    if (options.library === 'google') {
-
-      library = google; 
-
-    }
+    var library = google; 
 
     this.getMarker = function() { 
 

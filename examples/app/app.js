@@ -10,7 +10,7 @@ var mapOptions = {
 
 var map = new google.maps.Map(document.getElementById("map") , mapOptions);
 
-var mapVent = new Backbone.Map({map: map , library: "google"});
+var mapVent = new Backbone.Map({map: map});
 
 var collection = new Backbone.Collection();
 

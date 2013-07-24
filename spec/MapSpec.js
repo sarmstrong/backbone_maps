@@ -16,21 +16,7 @@ describe("Backbone Map" , function() {
 
         expect(faulty).toThrow(); 
 
-      }); 
-
-      it("Should throw error if the library is omitted" , function() { 
-
-        googleMapMock = new google.maps.Map();
-
-        var faulty = function() { 
-
-          var map = new Backbone.Map({map: googleMapMock});
-
-        }; 
-
-        expect(faulty).toThrow(); 
-
-      }); 
+      });
 
       googleMapMock  = undefined; 
 

@@ -32,23 +32,7 @@ describe("Backbone Marker" , function() {
 
         expect(faulty).toThrow(); 
 
-      }); 
-
-      it("Should throw error if the library is omitted" , function() {
-
-        var faulty = function() {
-
-            var marker = new google.maps.Marker(); 
-
-            var model = {};
-
-            var markerObj = new Backbone.MapMarker({marker: marker , model: model});
-
-        }; 
-
-        expect(faulty).toThrow(); 
-
-      }); 
+      });
 
 
     }); 
