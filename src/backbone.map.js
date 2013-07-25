@@ -93,15 +93,15 @@
 
     addListener : function(event) {
 
-      var map_obj = this;
+      var mapObj = this;
 
-      var reference_map = this.getMap();
+      var referenceMap = this.getMap();
 
-      this.getLibrary().maps.event.addListener(reference_map , event , function(e) {
+      this.getLibrary().maps.event.addListener(referenceMap , event , function(e) {
                 
-        var event_name = "map:" + event; 
+        var eventName = "map:" + event; 
                 
-        map_obj.trigger(event_name , [e]);
+        mapObj.trigger(eventName , [e]);
 
       }); 
 

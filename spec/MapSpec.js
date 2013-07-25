@@ -91,9 +91,9 @@ describe("Backbone Map" , function() {
 
           spyOn(map , 'trigger'); 
 
-          var model = {data : "Some Data"}; 
+          var model = new Backbone.Model();
 
-          var marker = new google.maps.Marker(); 
+          var marker = new google.maps.Marker({map : {}}); 
 
           var markerObj = map.addMarker(marker , model); 
 
@@ -106,9 +106,9 @@ describe("Backbone Map" , function() {
 
           spyOn(map , 'trigger'); 
 
-          var model = {data : "Some Data"}; 
+          var model = new Backbone.Model(); 
 
-          var marker = new google.maps.Marker(); 
+          var marker = new google.maps.Marker({map : map}); 
 
           var markerObj = map.addMarker(marker , model); 
 
@@ -129,7 +129,11 @@ describe("Backbone Map" , function() {
           expect(googleMapMock.callListener).toHaveBeenCalledWith("bounds_changed");
 
 
+
+
         }); 
+
+
 
     }); 
 

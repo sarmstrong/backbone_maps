@@ -34,6 +34,7 @@
 
     this.model = options.model;
 
+    this.listenTo(this.model , "destroy remove" , this.remove);
 
     for (var prop in this.markerEvents) {
 
@@ -44,7 +45,6 @@
     }
 
   };  
-
 
 
   _.extend(Marker.prototype , Backbone.Events , {
@@ -99,15 +99,15 @@
 
     addListener : function(event) {
 
-      var marker_obj = this;
+      var markerObj = this;
 
-      var reference_marker = this.getMarker();
+      var referenceMarker = this.getMarker();
 
-      this.getLibrary().maps.event.addListener(reference_marker , event , function(e) {
+      this.getLibrary().maps.event.addListener(referenceMarker , event , function(e) {
 
-        var event_name = "marker:" + event; 
+        var eventName = "marker:" + event; 
 
-        marker_obj.trigger(event_name , [e]);
+        markerObj.trigger(eventName , [e]);
 
       }); 
 
@@ -115,9 +115,19 @@
 
     triggerEvent : function(event) {
 
-      var reference_marker = this.getMarker();
+      var referenceMarker = this.getMarker();
 
-      this.getLibrary().maps.event.trigger(reference_marker , event);
+      this.getLibrary().maps.event.trigger(referenceMarker , event);
+
+    } , 
+
+    remove : function() {
+
+      var referenceMarker = this.getMarker(); 
+
+      referenceMarker.setMap(null);
+
+      this.trigger("marker:removed" , this);
 
     }
 
