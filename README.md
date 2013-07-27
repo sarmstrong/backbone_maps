@@ -1,6 +1,6 @@
 #Backbone Maps
 
-A simple event bus for handling google maps events. Using the boilerplate code from the Google Maps api, this library serves as a simple way to bus events between Google Map objects and Backbone object. 
+A simple event bus for handling Google maps events. Using the boilerplate code from the Google Maps API, this library serves as a simple way to bus events between Google Map objects and Backbone objects. 
 
 The purpose of this library is to simply piggybacks off of Backbone.Events and leaves the map creation up to you. The result is a rather flexible library that can plug-into a variety of Backbone environments.
 
@@ -42,19 +42,21 @@ var markerObj = mapVent.addMarker(marker , model);
 
 ```
 
-. . . And in a related view listening to maps events
+. . . And in a related view listening to marker events
 
 ```javascript
 
-this.listenTo(options.map , 'map:marker_add' , this.addMarker);
+this.listenTo(options.marker , 'marker:mouseover' , this.highlight);
 
 ```
 
-**5)** Markers will be removed when the model triggers a 'remove' event
+**5)** Markers will be removed when the model triggers a 'remove' or 'destroy' event or if the collection is reset
 
 ##ToDo List
 
-Example of integration with Backbone.Marionette
+- Live example
+
+- Example of integration with Backbone.Marionette
 
 
 
