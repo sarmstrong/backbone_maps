@@ -36,6 +36,14 @@
 
     this.listenTo(this.model , "destroy remove" , this.remove);
 
+    if (this.model.collection !== undefined) {
+
+      console.info("collection is defined");
+
+      this.listenTo(this.model.collection , "reset" , this.remove);
+
+    }
+
     for (var prop in this.markerEvents) {
 
         var event = this.markerEvents[prop];

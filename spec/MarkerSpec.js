@@ -121,7 +121,56 @@ describe("Backbone Marker" , function() {
    
         }); 
 
+ 
+
     }); 
 
+    describe("Edge Cases - " , function() { 
+
+      describe("Collection reset work around" , function() { 
+
+        var collection; 
+
+        beforeEach(function() { 
+
+          markerModel = new Backbone.Model();
+
+          googleMarkerMock = new google.maps.Marker({map : {}}); 
+
+          collection = new Backbone.Collection(); 
+
+          collection.add(markerModel);
+
+          markerObj = new Backbone.MapMarker({marker : googleMarkerMock , model : markerModel , library: "google"}); 
+
+
+        }); 
+
+        it("Should remove a marker after a collection is reset" , function() { 
+
+          spyOn(markerObj , 'trigger');
+
+          spyOn(googleMarkerMock , 'setMap').andCallThrough();
+
+          collection.reset(); 
+
+          /// Cannot observe remove event on markerObj so spying on 
+          /// mock function and trigger calls will do
+
+          expect(markerObj.trigger).toHaveBeenCalled();
+
+          expect(markerObj.trigger.mostRecentCall.args[0]).toEqual("marker:removed");
+
+          expect(googleMarkerMock.getMap()).toEqual(null); 
+
+          expect(googleMarkerMock.setMap).toHaveBeenCalled();  
+
+
+
+        });
+
+      }); 
+
+    }); 
 
 }); 

@@ -42,6 +42,10 @@ var listItemView = Backbone.View.extend({
 
     this.listenTo(this.marker , "marker:mouseout" , this.removeHighlight);
 
+    this.listenTo(this.model , "remove destroy" , this.remove);
+
+    this.listenTo(this.model.collection , "reset" , this.remove);
+
   } ,
 
   events : {
@@ -50,7 +54,9 @@ var listItemView = Backbone.View.extend({
 
     "mouseover .list-item" : 'highlight',
 
-    "mouseout .list-item" : 'removeHighlight'
+    "mouseout .list-item" : 'removeHighlight', 
+
+    'click .close' : 'close'
   },
 
   render : function() {
@@ -77,6 +83,14 @@ var listItemView = Backbone.View.extend({
 
     this.marker.triggerEvent("click");
 
+  } , 
+
+  close : function() { 
+
+    this.model.collection.remove(this.model); 
+
+    this.remove(); 
+
   }
 
 });
@@ -89,17 +103,30 @@ var listView = Backbone.View.extend({
 
   },
 
+  events : {
+
+    'click .clear-all' : "clearAll"
+
+
+  }, 
+
   addMarker : function(marker , model) {
 
     var view = new listItemView({ marker : marker , model: model  });
 
     this.$el.append(view.render().el);
 
+  } , 
+
+  clearAll : function() { 
+
+    this.collection.reset(); 
+    
   }
 
 });
 
-var sidebarList = new listView({el : "#list-view" , map: mapVent});
+var sidebarList = new listView({el : "#list-view" , map: mapVent , collection: collection});
 
 // Setup Controller
 
