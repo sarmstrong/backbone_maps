@@ -52,9 +52,9 @@ this.listenTo(options.marker , 'marker:mouseover' , this.highlight);
 
 **5)** Markers will be removed when the model triggers a 'remove' or 'destroy' event or if the collection is reset
 
-##ToDo List
+[See a live demo here.](http://sarmstrong.github.io/backbone_maps/examples/)
 
-- Live example
+##ToDo List
 
 - Example of integration with Backbone.Marionette
 
