@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+
+	<head>
+
+		<meta charset="UTF-8">
+		
+		<title>BB Maps</title>
+		
+		<link rel="stylesheet" href="style.css">
+		
+	</head>
+
+	<body>
+		
+		
+		<div id='map'>
+			
+			
+		</div>
+		
+		<div id='list-container'>
+		
+			
+		
+		</div>
+		
+		
+		<!-- scripts-->
+
+		<script src="vendor/jquery/jquery.min.js"></script>
+		
+		<script src="vendor/underscore/underscore-min.js"></script>
+		
+		<script src="vendor/backbone/backbone-min.js"></script>
+
+		<script src='vendor/backbone.marionette/lib/backbone.marionette.js'></script>
+
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiCcyXjpW4y-bAUSjarv2l9HE1O_zzQU0&sensor=true"></script>
+
+		<script src="../lib/backbone-maps-v0.0.1.js"></script>
+
+		<script type='text/template' id='list-view-tmpl'>
+
+            <h2>List View</h2>
+
+			<div id='list-view-container'>
+
+			  <div ><p class='clear-all'>Clear All</p></div>
+
+
+
+
+			</div>
+
+		</script>
+	
+		<script type='text/template' id='list-item' >
+		
+			<div class='list-item'>
+			
+				<h3><%= name %></h3>
+
+				<div class='close'>X</div>
+				
+				<p>Coords: <em><%= lat %>, <%= lon %></em></p>
+			
+			</div>
+			
+			
+		
+		</script>
+		
+		<script type='text/template' id='info-window' >
+		
+			<div>
+			
+				<h3><%= name %></h3>
+				
+				<p><a class='button'>Do Something</a></p>
+			
+			</div>
+		
+		</script>
+		
+		<!-- main app -->
+		
+		<script src="data.js"></script>
+		
+		<script src="app/app-marionette.js"></script>
+		
+	</body>
+	
+	
+	
+	
+</html>

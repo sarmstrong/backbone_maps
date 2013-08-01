@@ -38,8 +38,6 @@
 
     if (this.model.collection !== undefined) {
 
-      console.info("collection is defined");
-
       this.listenTo(this.model.collection , "reset" , this.remove);
 
     }
