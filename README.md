@@ -1,4 +1,4 @@
-#Backbone Maps
+#Backbone.Maps
 
 A simple event bus for handling Google maps events. Using the boilerplate code from the Google Maps API, this library serves as a simple way to bus events between Google Map objects and Backbone objects. 
 
@@ -54,9 +54,13 @@ this.listenTo(options.marker , 'marker:mouseover' , this.highlight);
 
 [See a live demo here.](http://sarmstrong.github.io/backbone_maps/examples/)
 
-##ToDo List
+##Usage with Scafolding
 
-- Example of integration with Backbone.Marionette
+Backbone.Maps can easily be plugged into scafolding like Marionette. Because Marionette is not opininated about how it is implemented, you can use very similiar code to the sample above in Marionette. A sample is provided in the examples library. 
+
+Because the Backbone.Marker objects are decoupled from the models, using a traditional CollectionView is not esay because the CollectionViews are built with the Collection 'add' event and markers are built *after* model creation. To change this would mean coupling the model with the  Backbone.Marker object which is not recommended. 
+
+
 
 
 
