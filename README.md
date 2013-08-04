@@ -54,11 +54,15 @@ this.listenTo(options.marker , 'marker:mouseover' , this.highlight);
 
 [See a live demo here.](http://sarmstrong.github.io/backbone_maps/examples/)
 
-##Usage with Scafolding
+##Usage with Backbone.Marionette
 
-Backbone.Maps can easily be plugged into scafolding like Marionette. Because Marionette is not opininated about how it is implemented, you can use very similiar code to the sample above in Marionette. A sample is provided in the examples library. 
+Backbone.Maps can easily be plugged into scaffolding like Backbone.Marionette. Because Marionette is not opinionated about how it is implemented, you can use very similar code to the sample above in Marionette. A sample is provided in the examples library.
 
-Because the Backbone.Marker objects are decoupled from the models, using a traditional CollectionView is not esay because the CollectionViews are built with the Collection 'add' event and markers are built *after* model creation. To change this would mean coupling the model with the  Backbone.Marker object which is not recommended. 
+Because the Backbone.Marker objects are decoupled from the models, using a traditional CollectionView is not easy because the CollectionViews are built with the Collection 'add' event and markers are built ***after*** model creation. To change this would mean coupling the model with the Backbone.Marker object which is not recommended. 
+
+In order to keep our views *dumb*, included is an example of Marionettes CompositeView (which extends from CollectionView) that uses the appendHtml method. 
+
+The app code in the Marionette example is not all that much shorter, mainly because a lot of boilerplate code is still needed to create maps and add markers. 
 
 
 

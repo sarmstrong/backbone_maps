@@ -87,9 +87,14 @@ MyApp.ListItemView = Backbone.Marionette.ItemView.extend({
 
 });
 
-/// 
+/// Keeping Views Dumb, Hijacking the Composite View
+/// to listen to markers added from the map object
 
-MyApp.ListView = Backbone.Marionette.ItemView.extend({
+MyApp.ListView = Backbone.Marionette.CompositeView.extend({
+
+  itemView : MyApp.ListItemView, 
+
+  itemViewContainer: "#list-view-container",
 
   template: "#list-view-tmpl" , 
 
@@ -109,9 +114,11 @@ MyApp.ListView = Backbone.Marionette.ItemView.extend({
 
     var view = new MyApp.ListItemView({ marker : marker , model: model  });
 
-    this.$('#list-view-container').append(view.render().el);
+    view.render(); 
 
-  } , 
+    this.appendHtml(this , view);
+
+  },  
 
   clearAll : function() { 
 
@@ -129,7 +136,7 @@ MyApp.Controller = Marionette.Controller.extend({
 
     MyApp.Collection.on("add" , this.addMarkers , this);
 
-    MyApp.listContainer.show(new MyApp.ListView({ map: mapVent , collection: MyApp.Collection })); 
+    MyApp.listContainer.show(new MyApp.ListView({ map: mapVent  })); 
 
   }, 
 
