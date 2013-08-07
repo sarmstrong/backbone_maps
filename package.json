@@ -4,7 +4,7 @@
   "description": "A simple event bus for handling google map events",
   "main": "app.js",
   "scripts": {
-    "test": "grunt"
+    "test": "grunt test"
   },
   "repository": {
     "type": "git",
@@ -26,5 +26,5 @@
     "grunt-contrib-jasmine": "~0.5.1",
     "grunt-contrib-watch": "~0.4.4",
     "grunt-template-jasmine-istanbul": "~0.2.4"
-  }
+  } 
 }
