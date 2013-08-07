@@ -52,7 +52,7 @@ this.listenTo(options.marker , 'marker:mouseover' , this.highlight);
 
 **5)** Markers will be removed when the model triggers a 'remove' or 'destroy' event or if the collection is reset
 
-[See a live demo here.](http://sarmstrong.github.io/backbone_maps/examples/)
+[See a live demo here](http://sarmstrong.github.io/backbone_maps/examples/)
 
 ##Usage with Backbone.Marionette
 
@@ -63,6 +63,8 @@ Because the Backbone.Marker objects are decoupled from the models, using a tradi
 In order to keep our views *dumb*, included is an example of Marionettes CompositeView (which extends from CollectionView) that uses the appendHtml method. 
 
 The app code in the Marionette example is not all that much shorter, mainly because a lot of boilerplate code is still needed to create maps and add markers. 
+
+[See a live demo of the Backbone.Marionette code here](http://sarmstrong.github.io/backbone_maps/examples/index-marionette.html)
 
 
 
