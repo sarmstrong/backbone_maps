@@ -1,5 +1,7 @@
 #Backbone.Maps
 
+[![Build Status](https://travis-ci.org/sarmstrong/backbone_maps.png)](https://travis-ci.org/sarmstrong/backbone_maps)
+
 A simple event bus for handling Google maps events. Using the boilerplate code from the Google Maps API, this library serves as a simple way to bus events between Google Map objects and Backbone objects. 
 
 The purpose of this library is to simply piggybacks off of Backbone.Events and leaves the map creation up to you. The result is a rather flexible library that can plug-into a variety of Backbone environments.
